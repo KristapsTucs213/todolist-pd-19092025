@@ -18,6 +18,18 @@ function App() {
     const info = document.createTextNode(tasks);
     l1.appendChild(info);
     setTask((tasks) => tasks = vertiba);
+    const delbutton = document.createElement("button");
+    const delinfo = document.createTextNode("X");
+    delbutton.appendChild(delinfo);
+    l1.appendChild(delbutton);
+
+    delbutton.addEventListener("click", deleterere);
+
+    async function deleterere(){
+      l1.remove();
+    }
+
+  
   }
   
 
