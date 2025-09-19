@@ -4,13 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [tasks, setTask] = useState(null)
 
-  async function clicker(){
+  async function clicker(event){
+    event.preventDefault()
     const forma = document.getElementById("formm");
-    var formData = new FormData(forma);
-    console.log(Object.fromEntries(formData));
+    const formData = new FormData(forma);
+    const vertiba = formData.get("input");
+    setTask((tasks) => tasks = vertiba);
   }
   
 
@@ -19,11 +20,11 @@ function App() {
     <h1>TO DO LIST</h1>
     <form id='formm'>
       <input type="text" name="input" id="input" />
-      <input type="submit" value="Submit" />
     </form>
-      <button onClick={() => setTask((tasks) => tasks = "lol")}>
-        your task is {tasks}
+      <button onClick={clicker}>
+        Ievadi savu tasku
       </button>
+      <p>Tavs uzdevums ir {tasks} </p>
     </>
   )
 }
