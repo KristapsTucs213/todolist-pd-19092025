@@ -9,8 +9,14 @@ function App() {
   async function clicker(event){
     event.preventDefault()
     const forma = document.getElementById("formm");
+    const lists = document.getElementById("lists");
     const formData = new FormData(forma);
     const vertiba = formData.get("input");
+
+    const l1 = document.createElement("li");
+    lists.appendChild(l1);
+    const info = document.createTextNode(tasks);
+    l1.appendChild(info);
     setTask((tasks) => tasks = vertiba);
   }
   
@@ -25,6 +31,7 @@ function App() {
         Ievadi savu tasku
       </button>
       <p>Tavs uzdevums ir {tasks} </p>
+      <ul id='lists'></ul>
     </>
   )
 }
